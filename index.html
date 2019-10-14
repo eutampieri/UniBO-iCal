@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calendario orari UniBO</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+	<script type="text/javascript">
+		function urlBN(){
+			var tmp = location.pathname.split("/");
+			var bn=location.protocol+"//"+window.location.hostname+document.location.pathname.replace(tmp[tmp.length-1],"");
+			return bn;
+		}
+		function generateURL() {
+			var unibo_url = document.getElementById("url_unibo").value;
+			var remider_delay = document.getElementById("reminder_delay");
+			var unibo_url_pieces = unibo_url.split("://")[1].split("/");
+			var reminder_delay = document.getElementById("reminder_delay").value;
+			var anno = document.getElementById("anno").value;
+			var url = urlBN() + "/cal.php?tipoCorso="+encodeURIComponent(unibo_url_pieces[1])
+				+ "&nomeCorso=" + encodeURIComponent(unibo_url_pieces[2])
+				+ "&anno=" + encodeURIComponent(anno)
+				+ "&reminder=" + encodeURIComponent(reminder_delay);
+			document.getElementById("calendar_url").innerHTML = url;
+		}
+	</script>
+</head>
+<body>
+	<h1>Calendario orari UniBO</h1>
+	<form>
+		<label for="url_unibo">URL del corso</label>
+		<input onchange="generateURL()" type="url" class="u-full-width" placeholder="https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
+		<label for="anno">Anno di corso</label>
+		<input onkeyup="generateURL()" type="number" id="anno">
+		<label for="reminder_delay">roba</label>
+		<input type="number" id="reminder_delay" onkeyup="generateURL()">
+	</form>
+	<p id="calendar_url"></p>
+</body>
+</html>
+
