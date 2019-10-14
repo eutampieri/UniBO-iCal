@@ -1,0 +1,3 @@
+[submodule "PHPiCal"]
+	path = PHPiCal
+	url = https://github.com/eutampieri/PHPiCal.git

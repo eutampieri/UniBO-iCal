@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: text/calendar");
-require('ical.php');
+require('PHPiCal/ical.php');
 date_default_timezone_set('Europe/Rome');
 $url = "https://corsi.unibo.it/".$_GET["tipoCorso"].'/'.$_GET["nomeCorso"]."/orario-lezioni/@@orario_reale_json?anno=".$_GET["anno"];
 error_log($url);
