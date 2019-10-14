@@ -16,7 +16,7 @@ foreach($dati["events"] as $lezione) {
 		"desc" => $descrizione
 	]);
 }
-$cal = new iCalendar(intval($_GET["reminder"]);
+$cal = new iCalendar(intval($_GET["reminder"]));
 echo $cal->ical($orario);
 ?>
 
