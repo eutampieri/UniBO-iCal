@@ -46,15 +46,15 @@
 		<h1>Calendario orari UniBO</h1>
 		<form>
 			<label for="url_unibo">URL del corso</label>
-			<input onchange="generateURL()" type="url" class="u-full-width" placeholder="https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
+			<input onchange="generateURL()" type="url" class="u-full-width" placeholder="Ad es. https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
 			<div class="row">
 				<div class="six columns">
 					<label for="anno">Anno di corso</label>
-					<input onchange="generateURL()" type="number" id="anno">
+					<input onchange="generateURL()" type="number" id="anno" value="1">
 				</div>
 				<div class="six columns">
 					<label for="reminder_delay">Avviso (minuti)</label>
-					<input type="number" id="reminder_delay" onchange="generateURL()">
+					<input type="number" id="reminder_delay" onchange="generateURL()" value="15">
 				</div>
 			</div>
 		</form>
