@@ -21,21 +21,49 @@
 				+ "&nomeCorso=" + encodeURIComponent(unibo_url_pieces[2])
 				+ "&anno=" + encodeURIComponent(anno)
 				+ "&reminder=" + encodeURIComponent(reminder_delay);
-			document.getElementById("calendar_url").innerHTML = url;
+			document.getElementById("calendar_url").value = url;
 		}
 	</script>
+	<style>
+		.u-text-center {
+			text-align: center !important; }
+	</style>
 </head>
 <body>
-	<h1>Calendario orari UniBO</h1>
-	<form>
-		<label for="url_unibo">URL del corso</label>
-		<input onchange="generateURL()" type="url" class="u-full-width" placeholder="https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
-		<label for="anno">Anno di corso</label>
-		<input onkeyup="generateURL()" type="number" id="anno">
-		<label for="reminder_delay">roba</label>
-		<input type="number" id="reminder_delay" onkeyup="generateURL()">
-	</form>
-	<p id="calendar_url"></p>
+	<div class="container">
+		<h1>Calendario orari UniBO</h1>
+		<form>
+			<label for="url_unibo">URL del corso</label>
+			<input onchange="generateURL()" type="url" class="u-full-width" placeholder="https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
+			<div class="row">
+				<div class="six columns">
+					<label for="anno">Anno di corso</label>
+					<input onkeyup="generateURL()" type="number" id="anno">
+				</div>
+				<div class="six columns">
+					<label for="reminder_delay">Avviso (minuti)</label>
+					<input type="number" id="reminder_delay" onkeyup="generateURL()">
+				</div>
+			</div>
+		</form>
+		<label for="anno">URL del calendario</label>
+		<input class="u-full-width" type="url" id="calendar_url">
+		<h2>Configura i tuoi dispositivi e servizi</h2>
+		<p>Segui le istruzioni per aggiungere i calendari ai tuoi dispositivi</p>
+		<h3>Google Calendar</h3>
+		<ul>
+			<li><a href="https://support.google.com/calendar/answer/37100?hl=en&co=GENIE.Platform%3DDesktop&oco=0">Istruzioni del supporto Google</a></li>
+		</ul>
+		<h3>iOS e macOS</h3>
+		<ul>
+			<li><a href="https://support.apple.com/en-us/HT202361">Aggiungere il calendario ad iCloud</a></li>
+			<li><a href="https://support.apple.com/it-it/guide/ipad/ipad1b02bf5b/ipados#iPadf36f162d">Aggiungere il calendario a un dispositivo iOS</a></li>
+		</ul>
+		<hr>
+		<footer class="u-text-center">
+			<em>Il codice di questo sito è completamente opensource: collabora su <a href="https://github.com/eutampieri/unibo-ical">GitHub</a>. Se trovi problemi, vuoi aggiungere le istruzioni per una piattaforma o vuoi suggerire dei miglioramenti, visita <a href="https://github.com/eutampieri/UniBO-iCal/issues/new">questa pagina</a> o <a href="https://t.me/eutampieri">mandami un messaggio</a>.</em>
+		</footer>
+	</div>
 </body>
 </html>
 
