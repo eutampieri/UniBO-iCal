@@ -3,8 +3,12 @@ header("Content-Type: text/calendar");
 require('PHPiCal/ical.php');
 date_default_timezone_set('Europe/Rome');
 $url = "https://corsi.unibo.it/".$_GET["tipoCorso"].'/'.$_GET["nomeCorso"]."/orario-lezioni/@@orario_reale_json?anno=".$_GET["anno"];
-error_log($url);
-$dati = json_decode(file_get_contents($url), true);
+$raw = file_get_contents($url);
+if($raw === false) {
+	$url = "https://corsi.unibo.it/".$_GET["tipoCorso"].'/'.$_GET["nomeCorso"]."/timetable/@@orario_reale_json?anno=".$_GET["anno"];
+	$raw = file_get_contents($url);
+}
+$dati = json_decode($raw, true);
 $orario = [];
 foreach($dati["events"] as $lezione) {
 	$data = date_create_from_format("Y-m-d\TH:i:s", $lezione["start"]);
