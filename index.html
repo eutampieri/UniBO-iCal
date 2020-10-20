@@ -1,14 +1,17 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<title>Calendario orari UniBO</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+		integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
 	<script type="text/javascript">
-		function urlBN(){
+		document.location = "http://unibocalendar.duckdns.org";
+		function urlBN() {
 			var tmp = location.pathname.split("/");
-			var bn=location.protocol+"//"+window.location.hostname+document.location.pathname.replace(tmp[tmp.length-1],"");
+			var bn = location.protocol + "//" + window.location.hostname + document.location.pathname.replace(tmp[tmp.length - 1], "");
 			return bn;
 		}
 		function generateURL() {
@@ -17,7 +20,7 @@
 			var unibo_url_pieces = unibo_url.split("://")[1].split("/");
 			var reminder_delay = document.getElementById("reminder_delay").value;
 			var anno = document.getElementById("anno").value;
-			var url = urlBN() + "/cal.php?tipoCorso="+encodeURIComponent(unibo_url_pieces[1])
+			var url = urlBN() + "/cal.php?tipoCorso=" + encodeURIComponent(unibo_url_pieces[1])
 				+ "&nomeCorso=" + encodeURIComponent(unibo_url_pieces[2])
 				+ "&anno=" + encodeURIComponent(anno)
 				+ "&reminder=" + encodeURIComponent(reminder_delay);
@@ -26,28 +29,42 @@
 	</script>
 	<style>
 		@media (prefers-color-scheme: dark) {
-			body{
+			body {
 				background-color: #202020;
 				color: #fff;
 			}
-			input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea{
+
+			input[type=email],
+			input[type=number],
+			input[type=password],
+			input[type=search],
+			input[type=tel],
+			input[type=text],
+			input[type=url],
+			select,
+			textarea {
 				background-color: #616264;
 				color: #eee;
 			}
+
 			a {
 				color: #4A6488;
 			}
 		}
+
 		.u-text-center {
-			text-align: center !important; }
+			text-align: center !important;
+		}
 	</style>
 </head>
+
 <body>
 	<div class="container">
 		<h1>Calendario orari UniBO</h1>
 		<form>
 			<label for="url_unibo">URL del corso</label>
-			<input onchange="generateURL()" type="url" class="u-full-width" placeholder="Ad es. https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
+			<input onchange="generateURL()" type="url" class="u-full-width"
+				placeholder="Ad es. https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche" id="url_unibo">
 			<div class="row">
 				<div class="six columns">
 					<label for="anno">Anno di corso</label>
@@ -65,19 +82,26 @@
 		<p>Segui le istruzioni per aggiungere i calendari ai tuoi dispositivi</p>
 		<h3>Google Calendar</h3>
 		<ul>
-			<li><a href="https://support.google.com/calendar/answer/37100?hl=en&co=GENIE.Platform%3DDesktop&oco=0">Istruzioni del supporto Google</a></li>
+			<li><a href="https://support.google.com/calendar/answer/37100?hl=en&co=GENIE.Platform%3DDesktop&oco=0">Istruzioni
+					del supporto Google</a></li>
 		</ul>
 		<h3>iOS e macOS</h3>
 		<ul>
 			<li><a href="https://support.apple.com/it-it/HT202361">Aggiungere il calendario ad iCloud</a></li>
-			<li><a href="https://support.apple.com/it-it/guide/ipad/ipad1b02bf5b/ipados#iPadf36f162d">Aggiungere il calendario a un dispositivo iOS</a></li>
-			<li><a href="https://support.apple.com/it-it/guide/calendar/icl1022/mac">Aggiungere il calendario a macOS</a></li>
+			<li><a href="https://support.apple.com/it-it/guide/ipad/ipad1b02bf5b/ipados#iPadf36f162d">Aggiungere il
+					calendario a un dispositivo iOS</a></li>
+			<li><a href="https://support.apple.com/it-it/guide/calendar/icl1022/mac">Aggiungere il calendario a
+					macOS</a></li>
 		</ul>
 		<hr>
 		<footer class="u-text-center">
-			<em>Il codice di questo sito è completamente opensource: collabora su <a href="https://github.com/eutampieri/unibo-ical">GitHub</a>. Se trovi problemi, vuoi aggiungere le istruzioni per una piattaforma o vuoi suggerire dei miglioramenti, visita <a href="https://github.com/eutampieri/UniBO-iCal/issues/new">questa pagina</a> o <a href="https://t.me/eutampieri">mandami un messaggio</a>.</em>
+			<em>Il codice di questo sito è completamente opensource: collabora su <a
+					href="https://github.com/eutampieri/unibo-ical">GitHub</a>. Se trovi problemi, vuoi aggiungere le
+				istruzioni per una piattaforma o vuoi suggerire dei miglioramenti, visita <a
+					href="https://github.com/eutampieri/UniBO-iCal/issues/new">questa pagina</a> o <a
+					href="https://t.me/eutampieri">mandami un messaggio</a>.</em>
 		</footer>
 	</div>
 </body>
-</html>
 
+</html>
