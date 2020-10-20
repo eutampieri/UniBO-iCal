@@ -8,7 +8,7 @@ if(file_get_contents("https://corsi.unibo.it/".$_GET["tipoCorso"].'/'.$_GET["nom
 } else {
 	$url = "https://corsi.unibo.it/".$_GET["tipoCorso"].'/'.$_GET["nomeCorso"]."/orario-lezioni";
 }
-echo file_get_contents("http://unibocalendar.duckdns.org/get_ical?timetable_url=$url&year=".$_GET["anno"]."&alert=".$_GET["reminder"])
+echo file_get_contents("http://unibocalendar.duckdns.org/get_ical?timetable_url=$url&year=".$_GET["anno"]."&alert=".strval(intval($_GET["reminder"])*60))
 ?>
 
 
